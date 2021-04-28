@@ -68,8 +68,9 @@ jupyterhub:
       guarantee: 512M
       limit: 2G
     cpu:
-      guarantee: 0.33
-      # Limit to 2 so users can't accidentally max out a node
-      limit: 2
+      # Set strong limit & guarantee - the nodes were pegging the CPU,
+      # causing some students to not even be able to execute cells
+      guarantee: 0.5
+      limit: 0.5
     image:
       name: gcr.io/ucb-datahub-2018/eecs-user-image
